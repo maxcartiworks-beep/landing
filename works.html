@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Работы — Max Automates. Скриншоты живых демо</title>
+<meta name="description" content="Скриншоты реальных работающих продуктов: бот записи с CRM, AI-поддержка, мониторинг цен, приём оплат, RAG-ассистент. Живое демо — по запросу.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%235e6ad2'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='18' font-weight='bold' fill='%23f7f8f8' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg0:#08090a; --bg1:#0f1011; --bg3:#191a1b;
+    --t1:#f7f8f8; --t2:#d0d6e0; --t3:#8a8f98; --t4:#62666d;
+    --line:#23252a; --line2:#18191a;
+    --indigo:#5e6ad2; --indigo-h:#828fff; --lime:#e4f222;
+    --radius-sm:4px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg0); color:var(--t2);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-weight:510; font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:50;background:rgba(8,9,10,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line2)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:590;font-size:15px;color:var(--t1);letter-spacing:-.2px}
+  .logo span{color:var(--indigo-h)}
+  .nav-links{display:flex;gap:28px;font-size:13.5px;color:var(--t3)}
+  .nav-links a:hover{color:var(--t1)}
+  .nav-links a.active{color:var(--t1)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9999px;font-size:14px;font-weight:590;padding:9px 20px;cursor:pointer;transition:all .15s ease;border:none;white-space:nowrap}
+  .btn-primary{background:var(--lime);color:#08090a}
+  .btn-primary:hover{filter:brightness(1.08)}
+  .btn-ghost{color:var(--t1);box-shadow:inset 0 0 0 1px var(--line)}
+  .btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--indigo);color:var(--indigo-h)}
+  .btn-sm{padding:7px 16px;font-size:13px}
+
+  .page-head{padding:80px 0 20px;text-align:center}
+  .sec-tag{font-size:13px;color:var(--indigo-h);font-weight:590;letter-spacing:.4px;text-transform:uppercase}
+  h1{font-size:46px;font-weight:590;letter-spacing:-1.2px;color:var(--t1);line-height:1.1;margin-top:12px}
+  .page-sub{color:var(--t3);max-width:620px;margin:18px auto 0;font-size:16.5px}
+  .page-sub b{color:var(--t2);font-weight:590}
+
+  section{padding:56px 0}
+  .work{background:var(--bg3);border-radius:var(--radius-sm);box-shadow:inset 0 0 0 1px var(--line);padding:36px 32px}
+  .work + .work{margin-top:20px}
+  .work-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+  .work h2{font-size:22px;font-weight:590;color:var(--t1);letter-spacing:-.4px}
+  .work .price{font-size:14px;color:var(--t2);font-weight:590}
+  .work .price small{color:var(--t4);font-weight:510;font-size:12px}
+  .work .who{font-size:12px;color:var(--t3);border-radius:9999px;padding:3px 12px;box-shadow:inset 0 0 0 1px var(--line)}
+  .work p.desc{font-size:14.5px;color:var(--t3);margin-top:10px;max-width:760px}
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}
+  .shots.two{grid-template-columns:repeat(2,1fr)}
+  .shot{border-radius:6px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);background:var(--bg1);transition:transform .15s ease}
+  .shot:hover{transform:scale(1.015)}
+  .shot img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/10}
+  .shot figcaption{font-size:11.5px;color:var(--t4);padding:8px 12px;border-top:1px solid var(--line2)}
+  .note{font-size:13px;color:var(--t4);margin-top:16px}
+
+  .cta-band{position:relative;text-align:center;padding:80px 0;background:var(--bg1);border-top:1px solid var(--line2)}
+  .cta-band h2{font-size:32px;font-weight:590;letter-spacing:-.8px;color:var(--t1);max-width:640px;margin:0 auto}
+  .cta-band p{color:var(--t4);font-size:14px;margin-top:14px}
+  .cta-band .btn{margin-top:28px}
+
+  footer{padding:44px 0;font-size:13.5px;color:var(--t4)}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot-links{display:flex;gap:24px}
+  .foot-links a:hover{color:var(--t2)}
+
+  @media(max-width:960px){.shots{grid-template-columns:repeat(2,1fr)}h1{font-size:36px}.nav-links{display:none}}
+  @media(max-width:620px){.shots,.shots.two{grid-template-columns:1fr}section{padding:36px 0}.work{padding:24px 20px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">MAX<span>AUTOMATES</span></a>
+    <nav class="nav-links">
+      <a href="index.html#products">Решения</a>
+      <a href="works.html" class="active">Работы</a>
+      <a href="index.html#process">Как работает</a>
+      <a href="index.html#contact">Контакты</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="https://t.me/maxautomates1">Живое демо</a>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="sec-tag">Работы</div>
+    <h1>Не концепты. Работающие продукты.</h1>
+    <p class="page-sub">Каждое решение ниже собрано, проверено автотестами и запущено — это скриншоты живых стендов, а не макеты. <b>Живое демо на ваших данных покажу в Telegram.</b></p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+
+    <div class="work">
+      <div class="work-head">
+        <h2>Бот записи + CRM для клиники</h2>
+        <span class="who">клиники · салоны · мастера</span>
+        <span class="price">от 20 000 ₽</span>
+      </div>
+      <p class="desc">Пациент записывается в Telegram, администратор управляет записями и клиентами в веб-панели: перенос, отмена, фильтры по дате и специалисту, история по каждому клиенту. Двойная запись на один слот невозможна.</p>
+      <div class="shots">
+        <figure class="shot"><img src="img/clinic-1-appointments.png" alt="Админ-панель: записи на приём"><figcaption>Записи: перенос и отмена прямо из панели</figcaption></figure>
+        <figure class="shot"><img src="img/clinic-2-specialists.png" alt="Карточки специалистов с расписанием"><figcaption>Специалисты: расписание и услуги</figcaption></figure>
+        <figure class="shot"><img src="img/clinic-3-clients.png" alt="Клиентская база с поиском"><figcaption>Клиенты: поиск и история записей</figcaption></figure>
+      </div>
+      <p class="note">47 автотестов, Docker, SQLite без внешних зависимостей.</p>
+    </div>
+
+    <div class="work">
+      <div class="work-head">
+        <h2>AI-поддержка клиентов 24/7</h2>
+        <span class="who">магазины · сервисы</span>
+        <span class="price">от 30 000 ₽</span>
+      </div>
+      <p class="desc">Агент отвечает по базе знаний магазина в вебе, Telegram, WhatsApp и MAX. Не выдумывает: сложный или эмоциональный вопрос уходит оператору тикетом — с меткой канала и историей переписки.</p>
+      <div class="shots two">
+        <figure class="shot"><img src="img/support-1-chat.png" alt="Диалог с агентом по базе знаний"><figcaption>Ответ по базе знаний: цены и самовывоз</figcaption></figure>
+        <figure class="shot"><img src="img/support-2-escalation.png" alt="Эскалация в тикет оператору"><figcaption>Недовольный клиент → тикет оператору с меткой канала</figcaption></figure>
+      </div>
+      <p class="note">76 автотестов, 4 канала в одном процессе, голосовые в WhatsApp.</p>
+    </div>
+
+    <div class="work">
+      <div class="work-head">
+        <h2>Сайт с заявками и оплатой</h2>
+        <span class="who">малый сервис · студии</span>
+        <span class="price">от 25 000 ₽</span>
+      </div>
+      <p class="desc">Полный путь без ручного учёта: заявка с сайта → уведомление мастеру → оценка → счёт → оплата по ссылке с чеком → статус меняется сам. «Оплачена» ставит только касса, менеджеру это запрещено.</p>
+      <div class="shots">
+        <figure class="shot"><img src="img/ltp-1-landing.png" alt="Лендинг сервиса с формой заявки"><figcaption>Лендинг с формой и честным прайсом</figcaption></figure>
+        <figure class="shot"><img src="img/ltp-3-payment.png" alt="Страница оплаты счёта"><figcaption>Страница оплаты (в бою — ЮKassa с чеком)</figcaption></figure>
+        <figure class="shot"><img src="img/ltp-2-admin.png" alt="Кабинет мастера со статусом Оплачена"><figcaption>Кабинет: «Оплачена» и журнал уведомлений</figcaption></figure>
+      </div>
+      <p class="note">Весь путь проверен на живом стенде: заявка → оценка → счёт → оплата → статус.</p>
+    </div>
+
+    <div class="work">
+      <div class="work-head">
+        <h2>AI-ассистент по документам компании</h2>
+        <span class="who">HR · регламенты · консультанты</span>
+        <span class="price">от 35 000 ₽</span>
+      </div>
+      <p class="desc">Настоящий retrieval-augmented generation: документы чанкуются, поиск по семантическим векторам (мультиязычная модель, русский работает), в ответ идут только релевантные фрагменты с указанием источника.</p>
+      <div class="shots two">
+        <figure class="shot"><img src="img/kb-2-answer.png" alt="Ответ ассистента с источником"><figcaption>Ответ по HR-политике со ссылкой на документ</figcaption></figure>
+      </div>
+      <p class="note">27 автотестов, загрузка новых документов через веб без перезапуска.</p>
+    </div>
+
+    <div class="work">
+      <div class="work-head">
+        <h2>AI-агент сравнения цен</h2>
+        <span class="who">закупки · e-commerce</span>
+        <span class="price">от 50 000 ₽</span>
+      </div>
+      <p class="desc">Агент с реальным headless-браузером сам заходит на страницы магазинов, читает цены и наличие, собирает сравнительную таблицу с резюме. Только чтение — кликать и покупать ему нечем.</p>
+      <div class="shots two">
+        <figure class="shot"><img src="img/psa-1-result.png" alt="Результат сравнения цен агента"><figcaption>Резюме, таблица сравнения и открытые страницы</figcaption></figure>
+      </div>
+      <p class="note">43 автотеста, включая интеграционный тест на реальном Chromium.</p>
+    </div>
+
+    <div class="work">
+      <div class="work-head">
+        <h2>Мониторинг конкурентов на Wildberries</h2>
+        <span class="who">продавцы WB</span>
+        <span class="price">от 5 000 ₽ <small>+ подписка от 8 000 ₽/мес</small></span>
+      </div>
+      <p class="desc">Выгрузка категории в Excel: цены (оригинал/со скидкой), остатки по складам, рейтинги, продавцы, характеристики. 1000 товаров за минуты через официальный JSON API — без браузера, не ломается от смены вёрстки. Подписка: дайджест изменений в Telegram по расписанию.</p>
+      <p class="note">Демо-выгрузку по вашей категории сделаю бесплатно за 15 минут — напишите в Telegram.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="wrap">
+    <h2>Живое демо — 5 минут в Telegram</h2>
+    <p>На примере вашей задачи, бесплатно и без обязательств.</p>
+    <a class="btn btn-primary" href="https://t.me/maxautomates1">Написать в Telegram</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 Max Automates — AI-автоматизация для бизнеса · Иркутск, работаю по всей России</div>
+    <div class="foot-links">
+      <a href="https://github.com/maxcartiworks-beep">GitHub</a>
+      <a href="https://t.me/maxautomates1">Telegram</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
