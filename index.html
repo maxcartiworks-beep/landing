@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Max Automates — AI-автоматизация для бизнеса. Внедрение за 48 часов</title>
+<meta name="description" content="Готовые AI-решения для бизнеса: боты записи с CRM, мониторинг Wildberries, AI-поддержка клиентов, приём оплат. Внедрение за 48 часов, демо до оплаты.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg0:#08090a; --bg1:#0f1011; --bg3:#191a1b;
+    --t1:#f7f8f8; --t2:#d0d6e0; --t3:#8a8f98; --t4:#62666d;
+    --line:#23252a; --line2:#18191a;
+    --indigo:#5e6ad2; --indigo-h:#828fff; --lime:#e4f222;
+    --radius-sm:4px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg0); color:var(--t2);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-weight:510; font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  /* ── header ─────────────────────────── */
+  header{position:sticky;top:0;z-index:50;background:rgba(8,9,10,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line2)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:590;font-size:15px;color:var(--t1);letter-spacing:-.2px}
+  .logo span{color:var(--indigo-h)}
+  .nav-links{display:flex;gap:28px;font-size:13.5px;color:var(--t3)}
+  .nav-links a:hover{color:var(--t1)}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;border-radius:9999px;
+    font-size:14px;font-weight:590;padding:9px 20px;cursor:pointer;transition:all .15s ease;
+    border:none;white-space:nowrap;
+  }
+  .btn-primary{background:var(--lime);color:#08090a}
+  .btn-primary:hover{filter:brightness(1.08)}
+  .btn-ghost{color:var(--t1);box-shadow:inset 0 0 0 1px var(--line)}
+  .btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--indigo);color:var(--indigo-h)}
+  .btn-sm{padding:7px 16px;font-size:13px}
+  .btn-lg{padding:13px 28px;font-size:15px}
+
+  /* ── hero ───────────────────────────── */
+  .hero{position:relative;padding:110px 0 90px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      repeating-linear-gradient(to right, rgba(35,37,42,.35) 0px, rgba(35,37,42,.35) 1px, transparent 1px, transparent 72px),
+      repeating-linear-gradient(to bottom, rgba(35,37,42,.28) 0px, rgba(35,37,42,.28) 1px, transparent 1px, transparent 72px);
+    mask-image:radial-gradient(ellipse 80% 65% at 50% 0%, black 30%, transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 65% at 50% 0%, black 30%, transparent 75%);
+  }
+  .hero .wrap{position:relative;text-align:center}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;border-radius:9999px;
+    padding:7px 16px;font-size:13px;color:var(--t2);
+    background:rgba(25,26,27,.7);box-shadow:inset 0 0 0 1px var(--line);
+  }
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--lime)}
+  h1{
+    font-size:58px;line-height:1.08;font-weight:590;letter-spacing:-1.6px;
+    color:var(--t1);margin:28px auto 0;
+  }
+  h1 .accent{color:var(--indigo-h)}
+  .hero-sub{font-size:18px;color:var(--t3);max-width:640px;margin:24px auto 0}
+  .hero-sub b{color:var(--t2);font-weight:590}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;margin-top:38px;flex-wrap:wrap}
+  .stats{
+    display:flex;justify-content:center;margin-top:70px;
+    border-top:1px solid var(--line2);
+  }
+  .stat{padding:26px 40px;border-right:1px solid var(--line2);text-align:center}
+  .stat:first-child{border-left:1px solid var(--line2)}
+  .stat .num{font-size:26px;font-weight:590;color:var(--t1);letter-spacing:-.5px}
+  .stat .lbl{font-size:12.5px;color:var(--t4);margin-top:3px}
+
+  /* ── sections ───────────────────────── */
+  section{padding:90px 0}
+  .sec-head{max-width:620px;margin-bottom:52px}
+  .sec-tag{font-size:13px;color:var(--indigo-h);font-weight:590;letter-spacing:.4px;text-transform:uppercase}
+  h2{font-size:38px;font-weight:590;letter-spacing:-1px;color:var(--t1);line-height:1.15;margin-top:12px}
+  .sec-sub{color:var(--t3);margin-top:14px;font-size:16.5px}
+
+  /* ── products ───────────────────────── */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .card{
+    background:var(--bg3);border-radius:var(--radius-sm);padding:28px 26px;
+    box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .15s ease, transform .15s ease;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{box-shadow:inset 0 0 0 1px var(--indigo);transform:translateY(-2px)}
+  .card .tag{
+    align-self:flex-start;font-size:11.5px;color:var(--t3);border-radius:9999px;
+    padding:4px 12px;box-shadow:inset 0 0 0 1px var(--line);margin-bottom:18px;
+  }
+  .card h3{font-size:17.5px;font-weight:590;color:var(--t1);letter-spacing:-.3px}
+  .card p{font-size:14px;color:var(--t3);margin-top:10px;flex-grow:1}
+  .card .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:22px;padding-top:16px;border-top:1px solid var(--line2)}
+  .price{font-size:15px;font-weight:590;color:var(--t2)}
+  .price small{color:var(--t4);font-weight:510;font-size:12px}
+  .fast{font-size:11.5px;color:var(--indigo-h)}
+
+  /* ── process ────────────────────────── */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .step{padding:26px 24px;background:var(--bg3);border-radius:var(--radius-sm);box-shadow:inset 0 0 0 1px var(--line)}
+  .step .n{font-size:13px;font-weight:590;color:var(--indigo-h);font-variant-numeric:tabular-nums}
+  .step h3{font-size:15.5px;font-weight:590;color:var(--t1);margin-top:14px;letter-spacing:-.2px}
+  .step p{font-size:13.5px;color:var(--t3);margin-top:8px}
+
+  /* ── why ────────────────────────────── */
+  .why{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .why-item{padding:30px 28px;background:var(--bg3);border-radius:var(--radius-sm);box-shadow:inset 0 0 0 1px var(--line)}
+  .why-item h3{font-size:16.5px;font-weight:590;color:var(--t1);letter-spacing:-.2px}
+  .why-item p{font-size:14px;color:var(--t3);margin-top:10px}
+
+  /* ── cta ────────────────────────────── */
+  .cta-band{
+    position:relative;text-align:center;padding:90px 0;overflow:hidden;
+    background:var(--bg1);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);
+  }
+  .cta-band::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 55% 60% at 50% 100%, rgba(94,106,210,.14), transparent 70%);
+  }
+  .cta-band .wrap{position:relative}
+  .cta-band h2{max-width:640px;margin:0 auto}
+  .cta-note{color:var(--t4);font-size:13.5px;margin-top:18px}
+  .cta-band .btn{margin-top:34px}
+
+  footer{padding:44px 0;font-size:13.5px;color:var(--t4)}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot-links{display:flex;gap:24px}
+  .foot-links a:hover{color:var(--t2)}
+
+  @media(max-width:960px){
+    h1{font-size:42px;letter-spacing:-1px}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .stats{flex-wrap:wrap}
+    .nav-links{display:none}
+  }
+  @media(max-width:620px){
+    h1{font-size:33px;letter-spacing:-.8px}
+    section{padding:64px 0}
+    .grid,.steps,.why{grid-template-columns:1fr}
+    .stat{padding:18px 20px}
+    .hero{padding:70px 0 60px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">MAX<span>AUTOMATES</span></div>
+    <nav class="nav-links">
+      <a href="#products">Решения</a>
+      <a href="#process">Как работает</a>
+      <a href="#why">Почему я</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="https://t.me/maxautomates1">Показать демо</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span>Внедрение за 48 часов — решения уже написаны</div>
+    <h1>AI-автоматизация для бизнеса.<br><span class="accent">Без двух недель ожидания.</span></h1>
+    <p class="hero-sub">Боты записи с CRM, мониторинг конкурентов на Wildberries, AI-поддержка клиентов, приём оплат. У меня <b>готовые проверенные движки</b> — под ваш бизнес остаётся адаптация. <b>Демо показываю до оплаты.</b></p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary btn-lg" href="https://t.me/maxautomates1">Живое демо за 5 минут</a>
+      <a class="btn btn-ghost btn-lg" href="#products">Смотреть решения</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">6</div><div class="lbl">готовых продуктов</div></div>
+      <div class="stat"><div class="num">48 ч</div><div class="lbl">срок внедрения</div></div>
+      <div class="stat"><div class="num">190+</div><div class="lbl">автотестов в движках</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">канала: TG, WA, MAX, веб</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">Решения</div>
+      <h2>Не разработка с нуля. Внедрение готового.</h2>
+      <p class="sec-sub">Каждое решение — работающий продукт с автотестами и документацией. Цена — под ключ, адаптация под ваш бизнес включена.</p>
+    </div>
+    <div class="grid">
+
+      <div class="card">
+        <span class="tag">салоны · клиники · мастера</span>
+        <h3>Бот записи + CRM</h3>
+        <p>Клиент записывается в Telegram 24/7 — кнопками или текстом («хочу к терапевту в четверг»). Администратор видит записи, клиентов и расписание в веб-панели. Двойная запись невозможна.</p>
+        <div class="foot"><div class="price">от 20 000 ₽</div><div class="fast">48 часов</div></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">продавцы Wildberries</span>
+        <h3>Мониторинг конкурентов на WB</h3>
+        <p>Цены со скидками, остатки по складам, рейтинги и продавцы по вашей категории — в Excel или дайджестом в Telegram по расписанию. 1000 товаров за минуты через официальный API.</p>
+        <div class="foot"><div class="price">от 5 000 ₽ <small>+ подписка от 8 000 ₽/мес</small></div><div class="fast">выгрузка сразу</div></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">магазины · сервисы</span>
+        <h3>AI-поддержка клиентов 24/7</h3>
+        <p>Отвечает по вашей базе знаний в Telegram, WhatsApp, MAX и на сайте. Не выдумывает: сложный вопрос или недовольный клиент — тикет живому оператору. Голосовые распознаёт.</p>
+        <div class="foot"><div class="price">от 30 000 ₽</div><div class="fast">48 часов</div></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">малый сервис · студии</span>
+        <h3>Сайт с заявками и оплатой</h3>
+        <p>Заявка с сайта → мгновенно вам в Telegram → клиент платит по ссылке с чеком (ЮKassa) → статус видит сам. Ноль «переведите на карту», ноль потерянных заявок.</p>
+        <div class="foot"><div class="price">от 25 000 ₽</div><div class="fast">48 часов</div></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">компании с документами</span>
+        <h3>AI-ассистент по документам</h3>
+        <p>Сотрудник спрашивает обычным языком — ассистент находит ответ во внутренних регламентах и отвечает со ссылкой на источник. Русский язык, семантический поиск, честное «не нашёл».</p>
+        <div class="foot"><div class="price">от 35 000 ₽</div><div class="fast">48 часов</div></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">закупки · e-commerce</span>
+        <h3>AI-агент сравнения цен</h3>
+        <p>Агент с реальным браузером сам заходит на страницы поставщиков и маркетплейсов, читает цены и наличие, возвращает сравнительную таблицу с резюме. Вы — получаете готовый вывод.</p>
+        <div class="foot"><div class="price">от 50 000 ₽</div><div class="fast">3–5 дней</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="process" style="background:var(--bg1);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">Как работает</div>
+      <h2>Четыре шага. Два дня.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Пишете задачу</h3><p>15 минут переписки или звонка — выясняю вашу ситуацию и подбираю решение.</p></div>
+      <div class="step"><div class="n">02</div><h3>Демо до оплаты</h3><p>Показываю живой продукт на ваших данных. Бесплатно и без обязательств.</p></div>
+      <div class="step"><div class="n">03</div><h3>Внедрение — 48 часов</h3><p>Адаптирую под ваш бренд, каталог, каналы. Подключаю оплаты и ваших сотрудников.</p></div>
+      <div class="step"><div class="n">04</div><h3>Запуск и поддержка</h3><p>Обучаю команду. Дальше — по желанию: поддержка и развитие по подписке.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">Почему я</div>
+      <h2>Инженер, а не «сделаю любой сайт»</h2>
+    </div>
+    <div class="why">
+      <div class="why-item"><h3>Готовые движки, не эксперименты</h3><p>Я не пишу ваш проект с нуля методом проб и ошибок. Внедряю решения, которые уже собраны, проверены автотестами и задокументированы.</p></div>
+      <div class="why-item"><h3>Демо до оплаты</h3><p>Вы видите работающий продукт до того, как платите. Предоплата — только после того, как демо вас убедило.</p></div>
+      <div class="why-item"><h3>Инженерное качество</h3><p>Автотесты, Docker, документация в каждом проекте. Решение не сломается через неделю — и его можно развивать дальше.</p></div>
+      <div class="why-item"><h3>Официально</h3><p>Самозанятость: договор, чек, любые формы оплаты для юрлиц и ИП. Без серых схем.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band" id="contact">
+  <div class="wrap">
+    <h2>Покажу живое демо за 5 минут — прямо в Telegram</h2>
+    <p class="cta-note">Бесплатно и без обязательств. Бот, парсер или AI-агент — на примере вашей задачи.</p>
+    <a class="btn btn-primary btn-lg" href="https://t.me/maxautomates1">Написать в Telegram</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 Max Automates — AI-автоматизация для бизнеса · Иркутск, работаю по всей России</div>
+    <div class="foot-links">
+      <a href="https://github.com/maxcartiworks-beep">GitHub</a>
+      <a href="https://t.me/maxautomates1">Telegram</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
